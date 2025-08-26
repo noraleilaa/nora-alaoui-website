@@ -1,0 +1,24 @@
+/* app/theme.css */
+@layer base {
+    :root {
+      /* Light theme */
+      --background: #ffffff;
+      --foreground: #000000;
+      
+      /* Font stacks */
+      --font-geist-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-geist-mono: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', Courier, monospace;
+      
+      /* Theme variables */
+      --color-background: var(--background);
+      --color-foreground: var(--foreground);
+      --font-sans: var(--font-geist-sans);
+      --font-mono: var(--font-geist-mono);
+    }
+    
+    .dark {
+      /* Dark theme */
+      --background: #000000;
+      --foreground: #ffffff;
+    }
+  }
