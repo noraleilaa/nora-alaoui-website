@@ -377,7 +377,7 @@ export default function Home() {
               <div className="space-y-6 mb-8">
                 <div className="flex items-center text-gray-700">
                   <FiMail className="text-gray-400 mr-3" size={18} />
-                  <span className="text-sm">noraalaoui433@gmail.com</span>
+                  <span className="text-sm">nora@nalaoui.com</span>
                 </div>
                 <div className="flex items-center text-gray-700">
                   <FiPhone className="text-gray-400 mr-3" size={18} />
