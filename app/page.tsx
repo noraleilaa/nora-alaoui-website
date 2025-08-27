@@ -326,12 +326,6 @@ export default function Home() {
 
             {/* Project 2 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-sm transition-shadow"
-            > <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden flex items-center justify-center">
               <img 
                 src="/images/yolo.jpg" 
                 alt="Autonomous Driving" 
