@@ -331,7 +331,12 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-sm transition-shadow"
-            >
+            > <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden flex items-center justify-center">
+              <img 
+                src="/images/yolo.jpg" 
+                alt="Autonomous Driving" 
+                className="h-full w-full object-cover"
+              />
               <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
                 <span className="text-green-600 font-medium">Autonomous Driving</span>
               </div>
