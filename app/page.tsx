@@ -115,7 +115,99 @@ export default function Home() {
       </header>
 
       {/* ✅ Projects Section (already good) */}
-      {/* ... keep your mapped project cards ... */}
+      {/* Projects Section - Minimalist Redesign */}
+<section id="projects" className="py-20 bg-white">
+  <div className="container mx-auto px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
+    >
+      Featured Projects
+    </motion.h2>
+    
+    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {[
+        {
+          title: "Protein Image Synthesis",
+          subtitle: "Synthetic DICOM/NIfTI generation",
+          description: "Designed advanced diffusion models for protein image synthesis, accelerating drug discovery pipelines.",
+          technologies: ["PyTorch", "AWS", "Medical AI"],
+          link: "https://pro-syn.com",
+          image: "/images/pro-syn.png",
+          colorClass: "bg-blue-50 text-blue-700"
+        },
+        {
+          title: "Autonomous Driving Object Detection",
+          subtitle: "Edge computing implementation",
+          description: "Real-time object detection system deployed on edge devices with optimized GPU acceleration.",
+          technologies: ["TensorFlow", "Edge AI", "YOLO"],
+          link: "#",
+          image: "/images/yolo.jpg",
+          colorClass: "bg-green-50 text-green-700"
+        },
+        {
+          title: "Brain Tumor Detector",
+          subtitle: "Multi-Modal AI",
+          description: "Developed multimodal AI integrating MRI, text, and clinical data for precise brain tumor detection.",
+          technologies: ["TensorFlow", "Multi-Modal AI", "Healthcare"],
+          link: "#",
+          image: "/images/brain-tumor.jpg",
+          colorClass: "bg-pink-50 text-pink-700"
+        }
+      ].map((project, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow"
+        >
+          <div className="relative h-48 w-full">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-lg font-medium text-gray-800 mb-2">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 text-sm mb-2">
+              {project.subtitle}
+            </p>
+            <p className="text-gray-700 text-sm mb-4">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-1 mb-4">
+              {project.technologies.map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  className={`px-2 py-1 rounded text-xs ${project.colorClass}`}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
+            >
+              Learn more
+              <FiArrowRight className="ml-1" />
+            </a>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ✅ Contact Section (React version, no raw HTML) */}
       <section id="contact" className="py-20 bg-gray-50">
