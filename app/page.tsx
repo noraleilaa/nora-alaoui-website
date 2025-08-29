@@ -80,7 +80,169 @@ export default function Home() {
         )}
       </nav>
 
-      {/* ... Hero, About, Experience, Projects (unchanged) ... */}
+      {/* Hero Section */}
+      <section className="min-h-[90vh] flex items-center">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
+            <h1 className="text-3xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
+              AI Engineer | Data Scientist
+            </h1>
+            <p className="text-lg text-gray-600 mb-8">
+              I design and deploy intelligent systems that bridge the gap
+              between cutting-edge research and practical applications.
+            </p>
+            <Link
+              href="#contact"
+              className="inline-flex items-center text-gray-900 hover:translate-x-1 transition-transform"
+            >
+              <span className="mr-2">Let&apos;s Connect</span>
+              <FiArrowRight />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12"
+          >
+            About Me
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl text-gray-600 text-lg"
+          >
+            With a background in data science and artificial intelligence, I
+            specialize in developing scalable solutions that drive progress and
+            shape the future of technology. My passion lies in healthcare AI,
+            multimodal systems, and solving complex real-world challenges
+            through machine learning.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20">
+        <div className="container mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12"
+          >
+            Experience
+          </motion.h2>
+          <div className="space-y-8">
+            {[
+              {
+                role: "AI Engineer",
+                company: "Healthcare Startup",
+                period: "2023 - Present",
+                description:
+                  "Building AI models for medical imaging and clinical decision support systems.",
+              },
+              {
+                role: "Data Scientist",
+                company: "Tech Company",
+                period: "2020 - 2023",
+                description:
+                  "Developed NLP models and recommendation systems at scale.",
+              },
+            ].map((job, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="border-l-2 border-gray-200 pl-6 relative"
+              >
+                <div className="absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-gray-400" />
+                <h3 className="font-medium text-gray-800">{job.role}</h3>
+                <p className="text-gray-600 text-sm">
+                  {job.company} • {job.period}
+                </p>
+                <p className="text-gray-600 mt-2">{job.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12"
+          >
+            Projects
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "ProSyn",
+                description:
+                  "Generates protein images from textual input using AI.",
+                link: "https://pros-syn.com",
+                image: "/images/pro-syn.png",
+              },
+              {
+                title: "Brain Tumor Detector",
+                description:
+                  "Deep learning model for brain tumor detection in MRI scans.",
+                link: "#",
+                image: "/images/brain-tumor.png",
+              },
+            ].map((project, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-medium text-gray-800">{project.title}</h3>
+                  <p className="text-gray-600 text-sm mt-2">
+                    {project.description}
+                  </p>
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-gray-900 mt-4 hover:translate-x-1 transition-transform text-sm"
+                  >
+                    <span className="mr-2">View Project</span>
+                    <FiArrowRight />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="p-2 text-gray-600">
@@ -93,7 +255,7 @@ export default function Home() {
           >
             Get In Touch
           </motion.h2>
-          
+
           <div className="max-w-md mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -105,7 +267,7 @@ export default function Home() {
                 <div className="flex items-center text-gray-700">
                   <FiMail className="text-gray-400 mr-3" size={18} />
                   <span className="text-sm">nora@nalaoui.com</span>
-                </div> {/* ✅ closed properly */}
+                </div>
 
                 <div className="flex justify-center space-x-4 mb-8">
                   <a
@@ -130,7 +292,12 @@ export default function Home() {
               {/* Form */}
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 text-sm mb-2">Name</label>
+                  <label
+                    htmlFor="name"
+                    className="block text-gray-700 text-sm mb-2"
+                  >
+                    Name
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -138,7 +305,12 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 text-sm mb-2">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 text-sm mb-2"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -146,7 +318,12 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 text-sm mb-2">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 text-sm mb-2"
+                  >
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     rows={4}
