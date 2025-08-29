@@ -285,157 +285,99 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section - Minimalist Redesign */}
-      <section id="projects" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
-          >
-            Featured Projects
-          </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Project 1 */}
-             </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "ProSyn",
-                description:
-                  "Generates protein images from textual input using AI.",
-                link: "https://pros-syn.com",
-                image: "/images/pro-syn.png",
-              },
-              {
-                title: "Brain Tumor Detector",
-                description:
-                  "Deep learning model for brain tumor detection in MRI scans.",
-                link: "#",
-                image: "/images/brain-tumor.png",
-              },
-            ].map((project, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-medium text-gray-800">{project.title}</h3>
-                  <p className="text-gray-600 text-sm mt-2">
-                    {project.description}
-                  </p>
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-gray-900 mt-4 hover:translate-x-1 transition-transform text-sm"
-                  >
-                    <span className="mr-2">View Project</span>
-                    <FiArrowRight />
-                  </Link>
-                </div>
-              <a
-                href="https://pro-syn.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
-              >
-                Learn more
-                <FiArrowRight className="ml-1" />
-              </a>
-            </motion.div>
-
-            {/* Project 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-sm transition-shadow"
-            >
-              <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-                <span className="text-gray-500">Project Image</span>
-              </div>
-              <h3 className="text-lg font-medium text-gray-800 mb-2">
-                Autonomous Driving Object Detection
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Edge computing implementation
-              </p>
-              <p className="text-gray-700 text-sm mb-4">
-                Real-time object detection system deployed on edge devices with optimized GPU acceleration.
-              </p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {["TensorFlow", "Edge AI", "YOLO"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <a
-                href="#"
-                className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
-              >
-                Learn more
-                <FiArrowRight className="ml-1" />
-              </a>
-            </motion.div>
-
-            {/* Project 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-sm transition-shadow"
-            >
-              <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-                <span className="text-gray-500">Project Image</span>
-              </div>
-              <h3 className="text-lg font-medium text-gray-800 mb-2">
-                Brain Tumor Detector
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">Multi-Modal AI</p>
-              <p className="text-gray-700 text-sm mb-4">
-                Developed multimodal AI integrating MRI, text, and clinical data for precise brain tumor detection.
-              </p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {["TensorFlow", "Multi-Modal AI", "Healthcare"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-pink-50 text-pink-700 rounded text-xs"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <a
-                href="#"
-                className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
-              >
-                Learn more
-                <FiArrowRight className="ml-1" />
-              </a>
-            </motion.div>
+     {/* Projects Section - Minimalist Redesign */}
+<section id="projects" className="py-20 bg-white">
+  <div className="container mx-auto px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
+    >
+      Featured Projects
+    </motion.h2>
+    
+    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {[
+        {
+          title: "Protein Image Synthesis",
+          subtitle: "Synthetic DICOM/NIfTI generation",
+          description: "Designed advanced diffusion models for protein image synthesis, accelerating drug discovery pipelines.",
+          technologies: ["PyTorch", "AWS", "Medical AI"],
+          link: "https://pro-syn.com",
+          image: "/images/pro-syn.png",
+          colorClass: "bg-blue-50 text-blue-700"
+        },
+        {
+          title: "Autonomous Driving Object Detection",
+          subtitle: "Edge computing implementation",
+          description: "Real-time object detection system deployed on edge devices with optimized GPU acceleration.",
+          technologies: ["TensorFlow", "Edge AI", "YOLO"],
+          link: "#",
+          image: "/images/yolo.jpg",
+          colorClass: "bg-green-50 text-green-700"
+        },
+        {
+          title: "Brain Tumor Detector",
+          subtitle: "Multi-Modal AI",
+          description: "Developed multimodal AI integrating MRI, text, and clinical data for precise brain tumor detection.",
+          technologies: ["TensorFlow", "Multi-Modal AI", "Healthcare"],
+          link: "#",
+          image: "/images/brain-tumor.jpg",
+          colorClass: "bg-pink-50 text-pink-700"
+        }
+      ].map((project, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow"
+        >
+          <div className="relative h-48 w-full">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
           </div>
-        </div>
-      </section>
-
+          <div className="p-6">
+            <h3 className="text-lg font-medium text-gray-800 mb-2">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 text-sm mb-2">
+              {project.subtitle}
+            </p>
+            <p className="text-gray-700 text-sm mb-4">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-1 mb-4">
+              {project.technologies.map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  className={`px-2 py-1 rounded text-xs ${project.colorClass}`}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
+            >
+              Learn more
+              <FiArrowRight className="ml-1" />
+            </a>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Contact Section - Minimalist Redesign */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
