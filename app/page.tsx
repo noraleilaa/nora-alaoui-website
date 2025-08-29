@@ -379,107 +379,358 @@ export default function Home() {
   </div>
 </section>
       {/* Contact Section - Minimalist Redesign */}
-      <section id="contact" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
-          >
-            Get In Touch
-          </motion.h2>
-          <div className="max-w-md mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white border border-gray-200 rounded-lg p-8"
-            >
-              <div className="space-y-6 mb-8">
-                <div className="flex items-center text-gray-700">
-                  <FiMail className="text-gray-400 mr-3" size={18} />
-                  <span className="text-sm">nora@nalaoui.com</span>
-                </div>
-                <div className="flex justify-center space-x-4 mb-8">
-                  <a
-                    href="https://github.com/noraleilaa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
-                  >
-                    <FiGithub size={20} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/nora-alaoui-b49968135/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
-                  >
-                    <FiLinkedin size={20} />
-                  </a>
-                </div>
-                <form className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-gray-700 text-sm mb-2"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-gray-400 text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-gray-700 text-sm mb-2"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-gray-400 text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-gray-700 text-sm mb-2"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-gray-400 text-sm"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-900 transition-colors text-sm"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-          </div>
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nora Alaoui - Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        body {
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #0066ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #333;
+        }
+        
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 60px;
+            color: #333;
+        }
+        
+        .contact-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            border: 1px solid #eee;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            color: #888;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #666;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: 1px solid #eee;
+        }
+        
+        .social-link:hover {
+            color: #0066ff;
+            border-color: #0066ff;
+            transform: translateY(-2px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #0066ff;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #000;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #28a745;
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0fff4;
+            border-radius: 8px;
+            border: 1px solid #c6f6d5;
+        }
+        
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #eee;
+            padding: 30px 0;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-btn {
+                display: block;
+            }
+            
+            .contact-container {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-img">NA</div>
+                <span>Nora Alaoui</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-      </section>
+    </nav>
 
-      {/* Footer */}
-      <footer className="py-8 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} Nora Alaoui. All rights reserved.
-          </p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>nora@nalaoui.com</span>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/noraleilaa" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nora-alaoui-b49968135/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                
+                <!-- Form with your Formspree endpoint -->
+                <form id="contact-form" action="https://formspree.io/f/xvgbkodq" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                
+                <div id="success-message" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    Thank you for your message! I'll get back to you soon.
+                </div>
+            </div>
         </div>
-      </footer>
-    </div>
-  );
-}
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Nora Alaoui. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Send form data to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('success-message').style.display = 'block';
+                    // Reset form
+                    document.getElementById('contact-form').reset();
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('success-message').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem sending your message. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
