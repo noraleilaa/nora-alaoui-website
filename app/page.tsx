@@ -175,8 +175,8 @@ export default function Home() {
             <Image
               src="/images/Northwestern.png"
               alt="Northwestern University"
-              width={32}
-              height={32}
+              width={200}
+              height={200}
               className="object-contain"
               priority
             />
