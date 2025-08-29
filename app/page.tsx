@@ -350,6 +350,32 @@ export default function Home() {
                 Learn more <FiArrowRight className="ml-1" />
               </a>
             </motion.div>
+          {/* Project 3*/}
+          <motion.div
+              <img 
+                src="/images/yolo.jpg" 
+                alt="Detecting Brain Tumors" 
+                className="h-full w-full object-cover"
+              />
+              <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+                <span className="text-green-600 font-medium">Brain Tumor Detector</span>
+              </div>
+              <h3 className="text-lg font-medium text-gray-800 mb-2">Brain Tumor Detector</h3>
+              <p className="text-gray-600 text-sm mb-4">Multi Modal AI </p>
+              <p className="text-gray-700 text-sm mb-4">
+                Develop multimodal AI integrating MRI, text, and clinical data for precise brain tumor detection..
+              </p>
+              <div className="flex flex-wrap gap-1 mb-4">
+                {["TensorFlow", "Edge AI", "YOLO"].map((tech) => (
+                  <span key={tech} className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a href="#" className="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+                Learn more <FiArrowRight className="ml-1" />
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
