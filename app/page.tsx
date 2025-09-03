@@ -152,8 +152,8 @@ export default function Home() {
           subtitle: "Multi-Modal AI",
           description: "Developed multimodal AI integrating MRI, text, and clinical data for precise brain tumor detection.",
           technologies: ["TensorFlow", "Multi-Modal AI", "Healthcare"],
-          link: "#",
-          image: "/images/brain-tumor.jpg",
+          link: "https://github.com/noraleilaa/BrainTumor_detector",
+          image: "/images/BTD2.jpg",
           colorClass: "bg-pink-50 text-pink-700"
         }
       ].map((project, index) => (
