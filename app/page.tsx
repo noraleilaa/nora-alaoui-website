@@ -113,7 +113,90 @@ export default function Home() {
           </Link>
         </div>
       </header>
+      {/* Experience Section */}
+      <section id="experience" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
+          >
+            Experience
+          </motion.h2>
+          <div className="space-y-8 max-w-4xl mx-auto">
+            {/* Job 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white border border-gray-200 rounded-lg p-6"
+            >
+              <div className="flex flex-col md:flex-row justify-between mb-4">
+                <h3 className="text-lg font-medium text-gray-800">
+                  Machine Learning & Generative AI Engineer
+                </h3>
+                <p className="text-gray-600 text-sm">June 2024 - Present</p>
+              </div>
+              <p className="text-blue-600 text-sm font-medium mb-4">Prosyn</p>
+              <ul className="space-y-2 text-gray-600 text-sm">
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Spearheaded deployment of diffusion models (DDPM) using PyTorch, reducing medical imaging data creation time by 40%
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Architected StyleGAN-3 and Stable Diffusion models, achieving 30% improvement in image quality
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Led team to deploy AI imaging solutions, improving training stability by 20%
+                </li>
+              </ul>
+            </motion.div>
 
+            {/* Job 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white border border-gray-200 rounded-lg p-6"
+            >
+              <div className="flex flex-col md:flex-row justify-between mb-4">
+                <h3 className="text-lg font-medium text-gray-800">
+                  ML Researcher & Developer
+                </h3>
+                <p className="text-gray-600 text-sm">Dec 2021 - Jun 2022</p>
+              </div>
+              <p className="text-blue-600 text-sm font-medium mb-4">
+                Virginia Tech AIC
+              </p>
+              <ul className="space-y-2 text-gray-600 text-sm">
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Developed CNN systems for lung cancer detection with 80% accuracy
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Optimized medical datasets, improving training efficiency by 30%
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+     {/* Projects Section - Minimalist Redesign */}
+<section id="projects" className="py-20 bg-white">
+  <div className="container mx-auto px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
+    >
       {/* ✅ Projects Section (already good) */}
       {/* Projects Section - Minimalist Redesign */}
 <section id="projects" className="py-20 bg-white">
