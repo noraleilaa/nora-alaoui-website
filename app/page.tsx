@@ -229,7 +229,16 @@ export default function Home() {
                 link: "https://github.com/noraleilaa/BrainTumor_detector",
                 image: "/images/BTD.jpg",
                 colorClass: "bg-pink-50 text-pink-700"
-              }
+              }, 
+            {
+                title: "Stock prediction based on Sentiment",
+                subtitle: "Stock Prediction Model",
+                description: "Designed advanced diffusion models for protein image synthesis, accelerating drug discovery pipelines.",
+                technologies: ["LSTM", "Web-Scraping", "Sentiment Analysis", "NLU"],
+                link: "https://pro-syn.com",
+                image: "/images/pro-syn.png",
+                colorClass: "bg-blue-50 text-blue-700"
+              },
             ].map((project, index) => (
               <motion.div
                 key={index}
