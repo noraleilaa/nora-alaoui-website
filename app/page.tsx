@@ -231,12 +231,12 @@ export default function Home() {
                 colorClass: "bg-pink-50 text-pink-700"
               }, 
             {
-                title: "Stock prediction based on Sentiment",
+                title: "Stock Prediction based on Sentiment",
                 subtitle: "Stock Prediction Model",
-                description: "Designed advanced diffusion models for protein image synthesis, accelerating drug discovery pipelines.",
+                description: "Built a sentiment-driven stock prediction system leveraging LSTMs and NLP techniques, integrating financial news and social media data with market trends to improve trading decisions.",
                 technologies: ["LSTM", "Web-Scraping", "Sentiment Analysis", "NLU"],
-                link: "https://pro-syn.com",
-                image: "/images/pro-syn.png",
+                link: "https://github.com/noraleilaa/Alpaca_Trade",
+                image: "/images/stocks.jpeg",
                 colorClass: "bg-blue-50 text-blue-700"
               },
             ].map((project, index) => (
