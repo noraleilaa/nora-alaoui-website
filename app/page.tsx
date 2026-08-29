@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,9 +16,118 @@ import {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const skills = [
+    "Python",
+    "PyTorch",
+    "TensorFlow",
+    "SQL",
+    "PySpark",
+    "XGBoost",
+    "scikit-learn",
+    "GraphSAGE",
+    "YOLO",
+    "Detectron2",
+    "OpenCV",
+    "RAG",
+    "Transformers",
+    "Docker",
+    "FastAPI",
+    "AWS SageMaker",
+    "CI/CD",
+    "Model Monitoring",
+  ];
+
+  const experience = [
+    {
+      title: "Cardiology Deep Learning Research Trainee",
+      company: "Children's National Medical Center",
+      date: "May 2026 - Present",
+      bullets: [
+        "Built an end-to-end arrhythmia prediction pipeline for 4,918 cardiac-surgery patients and 34,204 patient-time records, combining demographics, diagnoses, procedures, medications, labs, and longitudinal patient history.",
+        "Developed preoperative and rolling postoperative models using logistic regression and XGBoost, with time-based splits and strict prediction-time feature availability to prevent data leakage.",
+        "Built patient graphs and similarity features for graph-based modeling. The best model reached 0.748 test AUROC and 3.3x baseline AUPRC on a highly imbalanced outcome.",
+        "Prepared 12-lead ECG and MUSE XML data and tested CNN models for integration with the clinical risk pipeline.",
+      ],
+    },
+    {
+      title: "Machine Learning & Generative AI Engineer",
+      company: "ProSyn",
+      date: "Jun 2024 - Present",
+      bullets: [
+        "Designed a RAG-based multimodal pipeline combining biomedical literature retrieval, transformer models, and protein-generation models to produce research candidates and comparison reports.",
+        "Deployed containerized Docker and FastAPI inference services and built AWS SageMaker training workflows for PyTorch transformer and diffusion models.",
+        "Built protein comparison and expert-review tools displaying model confidence, structural differences, and supporting evidence.",
+        "Optimized GPU training and inference, reducing protein-generation time by 40% and improving training stability by 20%.",
+      ],
+    },
+    {
+      title: "Machine Learning / AI Researcher & Developer",
+      company: "Virginia Tech Arlington Innovation Center",
+      date: "Dec 2021 - Jun 2022",
+      bullets: [
+        "Built TensorFlow CNN and transfer-learning models for lung-cancer imaging, reaching 80% test accuracy.",
+        "Trained YOLO and Detectron2 models for lung-lesion detection and evaluated accuracy, recall, false positives, and inference speed.",
+        "Built a repeatable medical-imaging pipeline with quality checks, preprocessing, augmentation, and held-out model testing.",
+      ],
+    },
+    {
+      title: "Machine Learning Scientist",
+      company: "mdlogix",
+      date: "Apr 2021 - May 2022",
+      bullets: [
+        "Built mental-health models that predicted 80+ suicide events and 130+ adolescent crises, giving care teams earlier data for review and follow-up.",
+        "Migrated production analytics from AWS to Oracle and automated ETL pipelines, improving processing speed by approximately 25% and reducing manual data preparation by 40%.",
+        "Added HIPAA-aware data checks and repeatable ML workflows to improve data quality and training reproducibility.",
+      ],
+    },
+  ];
+
+  const projects = [
+    {
+      title: "Real-Time Object Detection for Autonomous Driving",
+      subtitle: "Computer Vision • Edge AI",
+      description:
+        "Led a real-time object detection pipeline for edge devices, matching model design to GPU and NPU limits while tracking model accuracy and data quality.",
+      technologies: ["YOLO", "Computer Vision", "Edge AI"],
+      link: "#",
+      image: "/images/yolo.jpg",
+      colorClass: "bg-green-50 text-green-700",
+    },
+    {
+      title: "Facial Recognition in Augmented Reality",
+      subtitle: "Deep Learning • Computer Vision",
+      description:
+        "Built a 26-layer ResNet facial-recognition model that reached 90% accuracy while meeting real-time inference requirements.",
+      technologies: ["ResNet", "Deep Learning", "Computer Vision"],
+      link: "#",
+      image: "/images/BTD.jpg",
+      colorClass: "bg-purple-50 text-purple-700",
+    },
+    {
+      title: "Object Detection & RAG App",
+      subtitle: "Computer Vision • Generative AI",
+      description:
+        "Built an iOS application combining cloud computer vision and retrieval-augmented generation to identify objects and return useful contextual information.",
+      technologies: ["RAG", "Computer Vision", "iOS"],
+      link: "https://github.com/noraleilaa",
+      image: "/images/pro-syn.png",
+      colorClass: "bg-blue-50 text-blue-700",
+    },
+    {
+      title: "Clinical Arrhythmia Prediction",
+      subtitle: "Clinical ML • Graph ML",
+      description:
+        "Developed temporal machine-learning and graph-based approaches for predicting postoperative arrhythmia from longitudinal clinical data.",
+      technologies: ["XGBoost", "Graph ML", "Clinical AI"],
+      link: "#experience",
+      image: "/images/stocks.jpeg",
+      colorClass: "bg-pink-50 text-pink-700",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans">
-      {/* ✅ Navigation */}
+      {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-sm py-6 sticky top-0 z-50 border-b border-gray-100">
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-3">
@@ -31,22 +141,29 @@ export default function Home() {
                 priority
               />
             </div>
-            <span className="text-lg font-medium text-gray-800">Nora Alaoui</span>
+
+            <span className="text-lg font-medium text-gray-800">
+              Nora Alaoui
+            </span>
           </Link>
 
           <div className="hidden md:flex space-x-8">
-            {["about", "experience", "projects", "contact"].map((item) => (
-              <Link
-                key={item}
-                href={`#${item}`}
-                className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
+            {["about", "skills", "experience", "projects", "contact"].map(
+              (item) => (
+                <Link
+                  key={item}
+                  href={`#${item}`}
+                  className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              )
+            )}
           </div>
 
           <button
+            type="button"
+            aria-label="Toggle navigation"
             className="md:hidden text-gray-600 hover:text-gray-900 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
           >
@@ -60,21 +177,23 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3"
           >
-            {["about", "experience", "projects", "contact"].map((item) => (
-              <Link
-                key={item}
-                href={`#${item}`}
-                onClick={() => setMenuOpen(false)}
-                className="block text-gray-600 hover:text-gray-900 transition-colors text-sm py-2"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
+            {["about", "skills", "experience", "projects", "contact"].map(
+              (item) => (
+                <Link
+                  key={item}
+                  href={`#${item}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-gray-600 hover:text-gray-900 transition-colors text-sm py-2"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              )
+            )}
           </motion.div>
         )}
       </nav>
 
-      {/* ✅ Hero Section */}
+      {/* Hero */}
       <header className="py-24 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -90,12 +209,21 @@ export default function Home() {
             priority
           />
         </motion.div>
-        <h1 className="text-3xl md:text-4xl font-normal text-gray-800 mb-4">
+
+        <h1 className="text-3xl md:text-5xl font-normal text-gray-800 mb-4">
           Nora Alaoui
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          Machine Learning Engineer & AI Specialist - driving innovation at the intersection of machine learning, data science, and real-world impac
+
+        <p className="text-xl text-gray-700 mb-3">
+          Machine Learning Engineer | AI Engineer | Computer Vision
         </p>
+
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-gray-500 mb-8 px-6 leading-relaxed">
+          Building end-to-end machine learning systems across clinical AI,
+          computer vision, graph ML, and generative AI — from data preparation
+          and model training to deployment, evaluation, and monitoring.
+        </p>
+
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="#contact"
@@ -104,6 +232,7 @@ export default function Home() {
             Contact Me
             <FiArrowRight className="ml-2" />
           </Link>
+
           <Link
             href="#projects"
             className="flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition text-sm"
@@ -114,7 +243,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ✅ About Me Section */}
+      {/* About */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.h2
@@ -125,45 +254,67 @@ export default function Home() {
           >
             About Me
           </motion.h2>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="bg-gray-50 rounded-lg p-8 border border-gray-200"
+            className="bg-gray-50 rounded-xl p-8 border border-gray-200"
           >
-            <div className="grid md:grid-cols-3 gap-8 items-center">
-              <div className="md:col-span-2">
-                <p className="text-gray-700 mb-4 text-lg leading-relaxed">
-                  I'm a passionate Machine Learning Engineer and AI Specialist with expertise in 
-                  generative AI, computer vision, and deploying scalable AI solutions. With a strong 
-                  background in both research and practical implementation, I specialize in creating 
-                  innovative AI systems that solve complex real-world problems.
-                </p>
-                <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  My work spans across medical imaging, autonomous systems, and generative models, 
-                  focusing on building efficient, reliable, and ethical AI solutions that push the 
-                  boundaries of what's possible in artificial intelligence.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                    Machine Learning
-                  </span>
-                  <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                    Generative AI
-                  </span>
-                  <span className="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                    Computer Vision
-                  </span>
-                  <span className="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
-                    Deep Learning
-                  </span>
-                </div>
-              </div>
-              <div className="flex justify-center">
+            <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+              I&apos;m a Machine Learning Engineer with 4+ years of experience
+              building computer vision, clinical machine learning, and
+              generative AI systems.
+            </p>
 
-      {/* ✅ Experience Section */}
-      <section id="experience" className="py-20 bg-gray-50">
+            <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+              My work spans the full ML lifecycle, including data preparation,
+              feature engineering, model training, temporal validation,
+              evaluation, deployment, inference APIs, and model monitoring.
+            </p>
+
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Recent projects include postoperative arrhythmia prediction,
+              patient graph modeling, RAG systems, protein generation,
+              medical-image analysis, and real-time object detection.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
+          >
+            Technical Skills
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-3"
+          >
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-full text-sm shadow-sm"
+              >
+                {skill}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section id="experience" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -173,72 +324,49 @@ export default function Home() {
           >
             Experience
           </motion.h2>
-          <div className="space-y-8 max-w-4xl mx-auto">
-            {/* Job 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white border border-gray-200 rounded-lg p-6"
-            >
-              <div className="flex flex-col md:flex-row justify-between mb-4">
-                <h3 className="text-lg font-medium text-gray-800">
-                  Machine Learning & Generative AI Engineer
-                </h3>
-                <p className="text-gray-600 text-sm">June 2024 - Present</p>
-              </div>
-              <p className="text-blue-600 text-sm font-medium mb-4">Prosyn</p>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">•</span>
-                  Spearheaded deployment of diffusion models (DDPM) using PyTorch, reducing medical imaging data creation time by 40%
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">•</span>
-                  Architected StyleGAN-3 and Stable Diffusion models, achieving 30% improvement in image quality
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">•</span>
-                  Led team to deploy AI imaging solutions, improving training stability by 20%
-                </li>
-              </ul>
-            </motion.div>
 
-            {/* Job 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white border border-gray-200 rounded-lg p-6"
-            >
-              <div className="flex flex-col md:flex-row justify-between mb-4">
-                <h3 className="text-lg font-medium text-gray-800">
-                  ML Researcher & Developer
-                </h3>
-                <p className="text-gray-600 text-sm">Dec 2021 - Jun 2022</p>
-              </div>
-              <p className="text-blue-600 text-sm font-medium mb-4">
-                Virginia Tech AIC
-              </p>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">•</span>
-                  Developed CNN systems for lung cancer detection with 80% accuracy
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">•</span>
-                  Optimized medical datasets, improving training efficiency by 30%
-                </li>
-              </ul>
-            </motion.div>
+          <div className="space-y-8 max-w-4xl mx-auto">
+            {experience.map((job, index) => (
+              <motion.div
+                key={`${job.company}-${job.title}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8"
+              >
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-2 mb-3">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-800">
+                      {job.title}
+                    </h3>
+
+                    <p className="text-blue-600 text-sm font-medium mt-1">
+                      {job.company}
+                    </p>
+                  </div>
+
+                  <p className="text-gray-500 text-sm whitespace-nowrap">
+                    {job.date}
+                  </p>
+                </div>
+
+                <ul className="space-y-3 text-gray-600 text-sm leading-relaxed">
+                  {job.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start">
+                      <span className="text-blue-500 mr-3 mt-0.5">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ✅ Projects Section - Fixed */}
-      <section id="projects" className="py-20 bg-white">
+      {/* Projects */}
+      <section id="projects" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -246,55 +374,18 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
           >
-            Featured Projects
+            Featured ML & AI Projects
           </motion.h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                title: "Protein Image Synthesis",
-                subtitle: "Synthetic DICOM/NIfTI generation",
-                description: "Designed advanced diffusion models for protein image synthesis, accelerating drug discovery pipelines.",
-                technologies: ["PyTorch", "AWS", "Medical AI"],
-                link: "https://pro-syn.com",
-                image: "/images/pro-syn.png",
-                colorClass: "bg-blue-50 text-blue-700"
-              },
-              {
-                title: "Autonomous Driving Object Detection",
-                subtitle: "Edge computing implementation",
-                description: "Real-time object detection system deployed on edge devices with optimized GPU acceleration.",
-                technologies: ["TensorFlow", "Edge AI", "YOLO"],
-                link: "#",
-                image: "/images/yolo.jpg",
-                colorClass: "bg-green-50 text-green-700"
-              },
-              {
-                title: "Brain Tumor Detector",
-                subtitle: "Multi-Modal AI",
-                description: "Developed multimodal AI integrating MRI, text, and clinical data for precise brain tumor detection.",
-                technologies: ["TensorFlow", "Multi-Modal AI", "Healthcare"],
-                link: "https://github.com/noraleilaa/BrainTumor_detector",
-                image: "/images/BTD.jpg",
-                colorClass: "bg-pink-50 text-pink-700"
-              }, 
-            {
-                title: "Stock Prediction based on Sentiment",
-                subtitle: "Stock Prediction Model",
-                description: "Built a sentiment-driven stock prediction system leveraging LSTMs and NLP techniques, integrating financial news and social media data with market trends to improve trading decisions.",
-                technologies: ["LSTM", "Web-Scraping", "Sentiment Analysis", "NLU"],
-                link: "https://github.com/noraleilaa/Alpaca_Trade",
-                image: "/images/stocks.jpeg",
-                colorClass: "bg-blue-50 text-blue-700"
-              },
-            ].map((project, index) => (
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {projects.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow"
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="relative h-48 w-full">
                   <Image
@@ -304,30 +395,41 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
+
                 <div className="p-6">
                   <h3 className="text-lg font-medium text-gray-800 mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-2">
+
+                  <p className="text-gray-500 text-sm mb-3">
                     {project.subtitle}
                   </p>
-                  <p className="text-gray-700 text-sm mb-4">
+
+                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
+
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.technologies.map((tech) => (
                       <span
-                        key={techIndex}
+                        key={tech}
                         className={`px-2 py-1 rounded text-xs ${project.colorClass}`}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+
                   <a
                     href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={
+                      project.link.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      project.link.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
                   >
                     Learn more
@@ -340,7 +442,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ✅ Contact Section */}
+      {/* Education */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-center"
+          >
+            Education
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="border border-gray-200 rounded-xl p-6">
+              <h3 className="font-medium text-gray-800">
+                Northwestern University
+              </h3>
+
+              <p className="text-gray-700 mt-2">
+                M.S., Data Science
+              </p>
+
+              <p className="text-blue-600 text-sm mt-1">
+                Artificial Intelligence
+              </p>
+
+              <p className="text-gray-500 text-sm mt-2">2024</p>
+            </div>
+
+            <div className="border border-gray-200 rounded-xl p-6">
+              <h3 className="font-medium text-gray-800">
+                George Mason University
+              </h3>
+
+              <p className="text-gray-700 mt-2">
+                B.S., Psychology
+              </p>
+
+              <p className="text-blue-600 text-sm mt-1">
+                Neuroscience
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 max-w-xl">
           <motion.h2
@@ -352,66 +500,93 @@ export default function Home() {
             Get In Touch
           </motion.h2>
 
-          <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
-            {/* Contact Info */}
-            <div className="flex items-center mb-6 text-gray-600">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+            <a
+              href="mailto:nora@nalaoui.com"
+              className="flex items-center mb-6 text-gray-600 hover:text-gray-900 transition"
+            >
               <FiMail className="mr-3" />
-              <span>nora@nalaoui.com</span>
-            </div>
+              nora@nalaoui.com
+            </a>
 
-            {/* Social Links */}
-            <div className="flex justify-center space-x-6 mb-6">
+            <div className="flex justify-center space-x-6 mb-8">
               <a
                 href="https://github.com/noraleilaa"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="text-gray-600 hover:text-gray-900 transition"
               >
                 <FiGithub size={22} />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/nora-alaoui-b49968135/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="text-gray-600 hover:text-gray-900 transition"
               >
                 <FiLinkedin size={22} />
               </a>
             </div>
 
-            {/* Form */}
             <form
               action="https://formspree.io/f/xvgbkodq"
               method="POST"
               className="space-y-4"
             >
               <div>
-                <label className="block text-sm text-gray-700 mb-1">Name</label>
+                <label
+                  htmlFor="name"
+                  className="block text-sm text-gray-700 mb-1"
+                >
+                  Name
+                </label>
+
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   required
-                  className="w-full px-4 py-2 border rounded-lg text-gray-600 focus:ring-2 focus:text-gray-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-gray-300 focus:outline-none"
                 />
               </div>
+
               <div>
-                <label className="block text-sm text-gray-700 mb-1">Email</label>
+                <label
+                  htmlFor="email"
+                  className="block text-sm text-gray-700 mb-1"
+                >
+                  Email
+                </label>
+
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 border rounded-lg text-gray-600 focus:ring-2 focus:text-gray-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-gray-300 focus:outline-none"
                 />
               </div>
+
               <div>
-                <label className="block text-gray-700 mb-1">Message</label>
+                <label
+                  htmlFor="message"
+                  className="block text-sm text-gray-700 mb-1"
+                >
+                  Message
+                </label>
+
                 <textarea
+                  id="message"
                   name="message"
                   rows={4}
                   required
-                  className="w-full px-4 py-2 border rounded-lg text-gray-600 focus:ring-2 focus:text-gray-600 focus:outline-none"
-                ></textarea>
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-gray-300 focus:outline-none"
+                />
               </div>
+
               <button
                 type="submit"
                 className="w-full bg-gray-800 text-white py-3 rounded-lg hover:bg-gray-900 transition text-sm"
@@ -423,8 +598,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ✅ Footer */}
-      <footer className="py-6 border-t text-center text-gray-600 text-sm">
+      {/* Footer */}
+      <footer className="py-6 border-t border-gray-200 text-center text-gray-600 text-sm">
         © {new Date().getFullYear()} Nora Alaoui. All rights reserved.
       </footer>
     </div>
